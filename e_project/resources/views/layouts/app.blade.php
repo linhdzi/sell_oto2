@@ -41,13 +41,23 @@
                                 </li>
                                 @endif
                             @endforeach
+                            @if(Session('id_customer'))
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/customers/logout">logout</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/customers/log">Login</a>
+                                </li>    
+                            @endif
+                            
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <form class="d-flex" role="search" method="GET" action="/customers/search">
+                            <input class="form-control me-2" type="text" name="_keyword"  placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
 
-                        <div class="change_hover"><button class="btn " type="submit"><i class="fa-solid fa-cart-shopping">Cart</i></button></div>
+                        <div class="change_hover"><a href="/customers/Rendercart"><button class="btn " type="submit"><i class="fa-solid fa-cart-shopping">Cart</i></button></a></div>
                     </div>
                 </div>
             </nav>

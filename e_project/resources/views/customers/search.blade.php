@@ -2,8 +2,8 @@
 
 @section ('content')
 
-<link rel="stylesheet" href="../../css/style.css">
-<link rel="stylesheet" href="../../css/shop.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/shop.css">
         <div class="container">
             <div class="d-flex">
                 <div class="left-side-title">
@@ -20,7 +20,7 @@
             </div>
             <div class="main">
                 <div class="row gy-3 row g-1 ">
-                    @foreach($products as $p)    
+                    @foreach($results as $p)    
                         <div class="col-md-3">
                             <div class="card">
                                 <img src="{{$p -> pic}}" class="card-img-top" alt="...">
@@ -34,14 +34,7 @@
                                         <i class="fa-solid fa-star"></i>
                                     </div>
                                     <p class="card-text">{{$p -> price}}</p>
-                                    <a href="/customers/detail/{{$p -> id}}" class="btn btn-light">View More</a>
-                                    <a href="/customers/Addcart/{{$p -> id}}">
-                                    <button class="addtocart">
-                                        <div class="pretext">
-                                            <i class="fas fa-cart-plus"></i> ADD TO CART
-                                        </div>
-                                    </button>
-                                    </a>
+                                    <a href="#" class="btn btn-light">View More</a>
                                 </div>
                             </div>
                         </div>

@@ -22,12 +22,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="title">
-                <h1>Browse by Type</h1>
+                <h1>Our brand we provide</h1>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 col-sm-12">
+        <div class="col-md-12 col-sm-12">
             <div class="row text-center icon">
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="check-icon">
@@ -102,16 +102,7 @@
                 <!-- end col -->
             </div><!-- end row -->
         </div>
-        <div class="col-md-4 col-sm-12 search-box">
-            <div class="search">
-                <h4>SEARCH YOUR CAR HERE</h4>
-            </div>
-            <div class="col-md-12 col-xs-12">
-                <input class="form-control mr-sm-2" id="input" type="search" placeholder="Search..."
-                    aria-label="Search">
-                <button class="btn btn-primary btn-block">SEARCH</button>
-            </div>
-        </div>
+       
     </div>
 </div><!-- end -->
 
@@ -140,6 +131,11 @@
                     <div class="car-title clearfix">
                         <h5><a href="/customers/index/{{$p -> id}}">{{$p -> name}}</a></h5>
                     </div><!-- end car-title -->
+                    <button class="addtocart">
+                        <div class="pretext">
+                            <i class="fas fa-cart-plus"></i> ADD TO CART
+                        </div>
+                    </button>
                 </div><!-- end post-media -->
             </div><!-- end clearfix -->
         </div><!-- end col -->
