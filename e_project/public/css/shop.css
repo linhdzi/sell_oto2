@@ -19,3 +19,26 @@
 .col{
     margin-top: 20px;
 }
+/* Tùy chỉnh kiểu dáng của button */
+.addtocart {
+    background-color: #4CAF50; /* Màu nền */
+    border: none; /* Loại bỏ viền */
+    color: white; /* Màu chữ */
+    padding: 10px 20px; /* Kích thước nút */
+    text-align: center; /* Căn giữa nội dung */
+    text-decoration: none; /* Loại bỏ gạch chân */
+    display: inline-block; /* Hiển thị như một khối */
+    font-size: 16px; /* Kích thước chữ */
+    cursor: pointer; /* Hiển thị con trỏ khi hover */
+    border-radius: 4px; /* Bo góc button */
+}
+
+/* Tùy chỉnh hiệu ứng hover */
+.addtocart:hover {
+    background-color: red /* Màu nền khi hover */
+}
+
+/* Tùy chỉnh kiểu dáng của icon */
+.addtocart i {
+    margin-right: 5px; /* Khoảng cách giữa icon và chữ */
+}
