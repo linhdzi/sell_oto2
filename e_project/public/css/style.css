@@ -1,0 +1,74 @@
+
+
+
+
+
+.change_hover:hover{
+    background-color: brown;
+    transition: background-color 1s ease;
+}
+.change_hover{
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 30px;
+
+}
+
+.wrapper{
+    background-color: black;
+    width: 100%;
+    height: 60px;
+    color: beige;
+   
+}
+.nav-link{
+    color: aliceblue ; 
+    opacity: 1 ;
+    padding-left: 10px;
+    margin-right: 20px;
+}
+
+.nav-link:hover {
+    color : red;
+    transition: color 1s ease;
+}
+
+
+
+  
+  .text-small {
+    font-size: 0.9rem;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+  
+  .form-control {
+    background: #212529;
+    border-color: #545454;
+  }
+  
+  .form-control:focus {
+    background: #212529;
+  }
+  
+  footer {
+    background: #212529;
+  }
+.small{
+    color: white;
+}
+  
+  /* ==========================================
+      CUSTOM UTILS CLASSES
+    ========================================== */
+    body, html {
+      height: 100%;
+    }

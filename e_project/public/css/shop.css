@@ -1,0 +1,21 @@
+.right-direction{
+    margin-right: 0;
+    margin-left: auto;
+}
+.right-side-title{
+    margin-right: 0;
+    margin-left: auto;
+}
+.middle-title{
+    margin-left: 256px;
+}
+
+.card{
+    text-align: center;
+}
+.main{
+    margin-top: 100px;
+}
+.col{
+    margin-top: 20px;
+}
