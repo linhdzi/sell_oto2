@@ -113,34 +113,34 @@ class CustomerController extends Controller
     }
 
     public function Addcart($id)
-    {
-        $customerId = Session::get('id_customer');
-        if ($customerId) {
-            $value = DB::table('customers_products')    
-                ->select('*')
-                ->where('customers_id', '=', $customerId)
-                ->where('products_id', '=', $id)
-                ->first();
-    
-            if ($value) {
-                $quantity = $value->quantity + 1;
-                DB::table('customers_products')
-                    ->where('customers_id', $customerId)
-                    ->update(['quantity' => $quantity]);
-            } else {
-                DB::table('customers_products')->insert([
-                    'customers_id' => $customerId,
-                    'products_id' => $id,
-                    'quantity' => 1,
-                ]);
-            }
-            echo "<script>alert('Add cart thành công');</script>";
-            return redirect()->back();
+{
+    $customerId = Session::get('id_customer');
+    if ($customerId) {
+        $value = DB::table('customers_products')    
+            ->select('*')
+            ->where('customers_id', '=', $customerId)
+            ->where('products_id', '=', $id)
+            ->first();
+
+        if ($value) {
+            $quantity = $value->quantity + 1;
+            DB::table('customers_products')
+                ->where('customers_id', $customerId)
+                ->update(['quantity' => $quantity]);
         } else {
-            echo "<script>alert('Add cart fail pls login');</script>";
-            return redirect()->back();
+            DB::table('customers_products')->insert([
+                'customers_id' => $customerId,
+                'products_id' => $id,
+                'quantity' => 1,
+            ]);
         }
+        session()->flash('success', 'Add cart thành công');
+        return redirect()->back();
+    } else {
+        session()->flash('error', 'Add cart fail pls login');
+        return redirect()->back();
     }
+}
     
     public function Rendercard(){
             $number = 0;

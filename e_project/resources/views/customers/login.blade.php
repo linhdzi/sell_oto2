@@ -14,11 +14,12 @@
 
 <body>
     <div class="login-form">
-    @csrf
+    
         <div class="text">
             LOGIN
         </div>
-        <form method="GET" action="/customers/login">
+        <form method="POST" action="{{ route('customers.login') }}">
+        @csrf    
             <div class="field">
                 <div class="fas fa-envelope"></div>
                 <input type="text" name="username" placeholder="Phone">

@@ -1,8 +1,16 @@
 @extends ('layouts.app')
 
 @section ('content')
+
 <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/index.css">    
+<link rel="stylesheet" href="../css/index.css">
+@if(session('success'))
+    <script>alert('{{ session('success') }}');</script>
+@endif
+
+@if(session('error'))
+    <script>alert('{{ session('error') }}');</script>
+@endif    
 <div class="slides">
     <div class="slide slide-1">
         <img src="../img/car1.png" class="silde_image">
@@ -131,11 +139,14 @@
                     <div class="car-title clearfix">
                         <h5><a href="/customers/index/{{$p -> id}}">{{$p -> name}}</a></h5>
                     </div><!-- end car-title -->
-                    <button class="addtocart">
-                        <div class="pretext">
-                            <i class="fas fa-cart-plus"></i> ADD TO CART
-                        </div>
-                    </button>
+                    <a href="/customers/Addcart/{{$p -> id}}">
+                        <button class="addtocart">
+                            <div class="pretext">
+                                <i class="fas fa-cart-plus"></i> ADD TO CART
+                            </div>
+                        </button>
+                    </a>
+                    
                 </div><!-- end post-media -->
             </div><!-- end clearfix -->
         </div><!-- end col -->
