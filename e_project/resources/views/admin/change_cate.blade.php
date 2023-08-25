@@ -22,8 +22,8 @@
 	-->
   </head>
 
-
   <body>
+
     <nav class="navbar navbar-expand-xl">
       <div class="container h-100">
         <a class="navbar-brand" href="index.html">
@@ -55,7 +55,7 @@
                 <i class="far fa-user"></i> Accounts
               </a>
             </li>
-           
+            
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -73,58 +73,40 @@
           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
             <div class="row">
               <div class="col-12">
-                <h2 class="tm-block-title d-inline-block">Add Product</h2>
+                <h2 class="tm-block-title d-inline-block">Add Cate</h2>
               </div>
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-              <form action="{{ route('admin.add_pd') }}" class="tm-edit-product-form" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div class="form-group mb-3">
-        <label for="name">Product Name</label>
-        <input id="name" name="name" type="text" class="form-control validate" required />
-    </div>
-    <div class="form-group mb-3">
-        <label for="name">Product Link Pic</label>
-        <input id="picture" name="picture" type="text" class="form-control validate" required />
-    </div>
-    <div class="form-group mb-3">
-        <label for="description">Description</label>
-        <textarea class="form-control validate" id="description" name="description" rows="3" required></textarea>
-    </div>
-    <div class="form-group mb-3">
-        <label for="category">Category</label>
-        <select class="custom-select tm-select-accounts" id="category" name="category_id" required>
-            @foreach($cates as $cate)
-                <option  value="{{ $cate->id }}">{{ $cate->name_list }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="row">
-        <div class="form-group mb-3 col-xs-12 col-sm-6">
-            <label for="rating">Rating</label>
-            <input id="rating" name="rating" type="text" class="form-control validate" data-large-mode="true">
-        </div>
-        <div class="form-group mb-3 col-xs-12 col-sm-6">
-            <label for="price">Price</label>
-            <input id="price" name="price" type="text" class="form-control validate" required>
-        </div>
-        <div class="form-group mb-3 col-xs-12 col-sm-6">
-            <label for="horse_power">Horse Power</label>
-            <input id="horse_power" name="horse_power" type="text" class="form-control validate" required>
-        </div>
-        <div class="form-group mb-3 col-xs-12 col-sm-6">
-            <label for="promotion">Promotion</label>
-            <input id="promtion" name="promtion" type="text" class="form-control validate" required>
-        </div>
-    </div>
+                <form action="{{ route('admin.changect', ['id' =>$cates->id]) }}" class="tm-edit-product-form" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >Cate Name
+                    </label>
+                    
+                    <input
+                      id="name"
+                      name="name" value="{{$cates->name_list}}"
+                      type="text"
+                      class="form-control validate"
+                      required
+                    />
 
-   
-
-    <div class="col-12">
-        <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
-    </div>
-</form>
+                    
+                  </div>
+                  
+                  
+                 
+                  
+              </div>
+              
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Change Cate Now</button>
+              </div>
+            </form>
             </div>
           </div>
         </div>
@@ -146,6 +128,6 @@
     <!-- https://jqueryui.com/download/ -->
     <script src="js/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
-    
+   
   </body>
 </html>
