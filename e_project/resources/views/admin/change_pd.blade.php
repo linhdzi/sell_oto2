@@ -44,6 +44,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto h-100">
             
+            
             <li class="nav-item">
               <a class="nav-link active" href="products.html">
                 <i class="fas fa-shopping-cart"></i> Products
@@ -78,19 +79,19 @@
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-              <form action="{{ route('admin.add_pd') }}" class="tm-edit-product-form" method="POST" enctype="multipart/form-data">
-    @csrf
+              <form action="{{ route('admin.changepd', ['id' =>$pd->id]) }}" class="tm-edit-product-form" method="POST" enctype="multipart/form-data">
+              {{ csrf_field() }}
     <div class="form-group mb-3">
         <label for="name">Product Name</label>
-        <input id="name" name="name" type="text" class="form-control validate" required />
+        <input id="name" value="{{$pd->name}}" name="name" type="text" class="form-control validate" required />
     </div>
     <div class="form-group mb-3">
         <label for="name">Product Link Pic</label>
-        <input id="picture" name="picture" type="text" class="form-control validate" required />
+        <input id="picture" value="{{$pd->pic}}" name="picture" type="text" class="form-control validate" required />
     </div>
     <div class="form-group mb-3">
         <label for="description">Description</label>
-        <textarea class="form-control validate" id="description" name="description" rows="3" required></textarea>
+        <textarea  class="form-control validate" id="description" name="description" rows="3" required> {{$pd->description}}</textarea>
     </div>
     <div class="form-group mb-3">
         <label for="category">Category</label>
@@ -103,26 +104,26 @@
     <div class="row">
         <div class="form-group mb-3 col-xs-12 col-sm-6">
             <label for="rating">Rating</label>
-            <input id="rating" name="rating" type="text" class="form-control validate" data-large-mode="true">
+            <input id="rating" value="{{$pd->rating}}" name="rating" type="text" class="form-control validate" data-large-mode="true">
         </div>
         <div class="form-group mb-3 col-xs-12 col-sm-6">
             <label for="price">Price</label>
-            <input id="price" name="price" type="text" class="form-control validate" required>
+            <input id="price" value="{{$pd->price}}" name="price" type="text" class="form-control validate" required>
         </div>
         <div class="form-group mb-3 col-xs-12 col-sm-6">
             <label for="horse_power">Horse Power</label>
-            <input id="horse_power" name="horse_power" type="text" class="form-control validate" required>
+            <input id="horse_power" value="{{$pd->horse_power}}" name="horse_power" type="text" class="form-control validate" required>
         </div>
         <div class="form-group mb-3 col-xs-12 col-sm-6">
             <label for="promotion">Promotion</label>
-            <input id="promtion" name="promtion" type="text" class="form-control validate" required>
+            <input id="promtion " value="{{$pd->promtion}}" name="promtion" type="text" class="form-control validate" required>
         </div>
     </div>
 
    
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+        <button type="submit" class="btn btn-primary btn-block text-uppercase">Change Product Now</button>
     </div>
 </form>
             </div>

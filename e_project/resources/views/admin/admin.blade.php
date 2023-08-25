@@ -42,59 +42,15 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto h-100">
+            
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <i class="fas fa-tachometer-alt"></i> Dashboard
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-                <i class="far fa-file-alt"></i>
-                <span> Reports <i class="fas fa-angle-down"></i> </span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Daily Report</a>
-                <a class="dropdown-item" href="#">Weekly Report</a>
-                <a class="dropdown-item" href="#">Yearly Report</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="products.html">
+              <a class="nav-link active" href="admin">
                 <i class="fas fa-shopping-cart"></i> Products
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="accounts.html">
-                <i class="far fa-user"></i> Accounts
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-                <i class="fas fa-cog"></i>
-                <span> Settings <i class="fas fa-angle-down"></i> </span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Billing</a>
-                <a class="dropdown-item" href="#">Customize</a>
-              </div>
-            </li>
+            
+            
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -113,14 +69,12 @@
             <div class="tm-product-table-container">
               <table class="table table-hover tm-table-small tm-product-table">
                 <thead>
-                  <tr>
-                    <th scope="col">&nbsp;</th>
-                    <th scope="col">PRODUCT NAME</th>
-                    <th scope="col">UNIT SOLD</th>
-                    <th scope="col">IN STOCK</th>
-                    <th scope="col">EXPIRE DATE</th>
-                    <th scope="col">&nbsp;</th>
-                  </tr>
+                  
+                   
+                  
+                    
+                    
+                  
                 </thead>
                 <tbody>
                 @foreach ($products as $p)
@@ -130,144 +84,42 @@
     <td>{{ $p->price }}</td>
   
     <td>{{ $p->created_at }}</td>
+    
     <td>
-        <a href="#"  class="tm-product-delete-link">
-            <i class="far fa-trash-alt tm-product-delete-icon"></i>
-            
-        </a>
+    <form action="{{ route('admin.deletepd', ['id' => $p->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                <i class="far fa-trash-alt tm-product-delete-icon"></i>
+            </button>
+        </form>
+    </td>
+    <td>
+    <form action="{{route('admin.change_pd')}}" method="GET">
+    @csrf
+    <input type="hidden" name="pd_id" value="{{ $p->id }}">
+    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+        <i class="fa-solid fa-wrench"></i>
+    </button>
+      </form>
     </td>
 </tr>
 @endforeach
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 2</td>
-                    <td>1,250</td>
-                    <td>750</td>
-                    <td>21 March 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 3</td>
-                    <td>1,100</td>
-                    <td>900</td>
-                    <td>18 Feb 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 4</td>
-                    <td>1,400</td>
-                    <td>600</td>
-                    <td>24 Feb 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 5</td>
-                    <td>1,800</td>
-                    <td>200</td>
-                    <td>22 Feb 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 6</td>
-                    <td>1,000</td>
-                    <td>1,000</td>
-                    <td>20 Feb 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 7</td>
-                    <td>500</td>
-                    <td>100</td>
-                    <td>10 Feb 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 8</td>
-                    <td>1,000</td>
-                    <td>600</td>
-                    <td>08 Feb 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 9</td>
-                    <td>1,200</td>
-                    <td>800</td>
-                    <td>24 Jan 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 10</td>
-                    <td>1,600</td>
-                    <td>400</td>
-                    <td>22 Jan 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem Ipsum Product 11</td>
-                    <td>2,000</td>
-                    <td>400</td>
-                    <td>21 Jan 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
+     
+
+                
+       
+          
+ 
+         
                 </tbody>
               </table>
             </div>
             <!-- table container -->
             <a
-              href="add-product.html"
+              href="admin/add_pd"
               class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
-            <button class="btn btn-primary btn-block text-uppercase">
-              Delete selected products
-            </button>
+            
           </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
@@ -280,9 +132,27 @@
   <tr>
     <td class="tm-product-name">{{ $category->name_list }}</td>
     <td class="text-center">
-      <a href="#" class="tm-product-delete-link">
-        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-      </a>
+      
+ 
+      
+   
+    <form action="{{ route('admin.deletect', ['id' => $category->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                <i class="far fa-trash-alt tm-product-delete-icon"></i>
+            </button>
+        </form>
+    </td>
+    <td class="text-center">
+      
+    <form action="{{route('admin.change_cate')}}" method="GET">
+    @csrf
+    <input type="hidden" name="cate_id" value="{{ $category->id }}">
+    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+        <i class="fa-solid fa-wrench"></i>
+    </button>
+</form>
     </td>
   </tr>
 @endforeach
@@ -293,9 +163,10 @@
               </table>
             </div>
             <!-- table container -->
-            <button class="btn btn-primary btn-block text-uppercase mb-3">
-              Add new category
-            </button>
+            <a
+              href="add_cate"
+              class="btn btn-primary btn-block text-uppercase mb-3">Add new cate</a>
+            
           </div>
         </div>
       </div>

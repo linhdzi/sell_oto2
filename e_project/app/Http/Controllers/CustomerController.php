@@ -187,4 +187,55 @@ class CustomerController extends Controller
             return $return;
     }
     
+    public function Get_id_to_compare()
+    {
+        $id_customer = Session::get('id_customer');
+        if (request()->isMethod('post')) {
+            $newCate = [
+                'products_id' => request('name'),
+                'customers_id' =>  $id_customer,
+            ];
+    
+           
+    
+            // Thêm sản phẩm mới vào cơ sở dữ liệu
+            DB::table('customers_products')
+            
+            ->insert($newCate);
+        }   
+        return view('/customers/compare') ;
+    }
+
+    public function Show_compare_product()
+    {
+        $products = DB::table('products')->select('*')
+        
+        ->get();
+
+       
+    
+    
+    
+        
+        
+   
+
+
+
+
+
+
+        return view('/customers/compare', compact('products')) ;
+    }
+
+    public function show_about()
+    {
+        
+        return view('/customers/about') ;
+    }
+
+
+
+
+
 }

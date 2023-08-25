@@ -7,10 +7,10 @@
         <div class="container">
             <div class="d-flex">
                 <div class="left-side-title">
-                    <h4>Shop full width</h4>
+                    
                 </div>
                 <div class="middle-title">
-                    <h1>Shop in style</h1>
+                    
                 </div>
                 <div class="right-side-title">
                     <a href="javascript:void(0)">Home</a>
@@ -23,18 +23,46 @@
                     @foreach($products as $p)    
                         <div class="col-md-3">
                             <div class="card">
-                                <img src="{{$p -> pic}}" class="card-img-top" alt="...">
+                                <a href="/customers/detail/{{$p -> id}}"><img src="{{$p -> pic}}" class="card-img-top" alt="..."></a>
                                 <div class="card-body">
                                     <h5 class="card-title">{{$p ->name}}</h5>
-                                    <div class="star">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p class="card-text">{{$p -> price}}</p>
-                                    <a href="/customers/detail/{{$p -> id}}" class="btn btn-light">View More</a>
+                                    
+                                    <p class="card-text">{{$p -> price}}$</p>
+                                 
+                                
+                                  <!-- <button product_id="{{$p->id}}" type="button" onclick="addProduct({{$p->id}})" class="btn btn-light">Compare</button>
+                                     -->
+                                  
+                                    
+                                    
+                                    
+                                    <form action="{{ route('customers.compare') }}" class="tm-edit-product-form" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                  
+                  
+                    <input hidden
+                      id="name"
+                      name="name"
+                      type="text"
+                      class="form-control validate"
+                      value="{{$p -> price}}"
+                      required
+                    />
+                 
+                  
+                  
+             
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Compare</button>
+              
+                 
+                  
+            
+              
+              
+            </form>
+
+
+                                    
                                     <a href="/customers/Addcart/{{$p -> id}}">
                                     <button class="addtocart">
                                         <div class="pretext">
@@ -50,5 +78,9 @@
                 
             </div>
         </div>    
+   
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <!-- <script src="../../js/custom.js"></script> -->
 
 @endsection
