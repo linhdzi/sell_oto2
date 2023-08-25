@@ -4,6 +4,13 @@
 
 <link rel="stylesheet" href="../../css/style.css">
 <link rel="stylesheet" href="../../css/shop.css">
+@if(session('success'))
+    <script>alert('{{ session('success') }}');</script>
+@endif
+
+@if(session('error'))
+    <script>alert('{{ session('error') }}');</script>
+@endif
         <div class="container">
             <div class="d-flex">
                 <div class="left-side-title">

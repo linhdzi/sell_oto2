@@ -17,7 +17,8 @@
         <div class="text">
             SIGN UP
         </div>
-        <form method="GET" action="/customers/signup">
+        <form method="POST" action="{{ route('customers.signup') }}">
+        @csrf    
             <div class="field">
                 <div class="fas fa-envelope"></div>
                 <input type="text" name="username" placeholder="Phone">
